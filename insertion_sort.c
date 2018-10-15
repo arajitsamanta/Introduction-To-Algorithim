@@ -32,8 +32,6 @@ void insertionSort(int a[], int n)
             j--;
         }
         a[j + 1] = key;
-        printArray(a, n);
-        printf("\n");
     }
 }
 
