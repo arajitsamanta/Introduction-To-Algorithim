@@ -1,7 +1,7 @@
 
 # Introduction To Algorithim
 
-Study notes and code written for each chapter while reading the book **Intruduction To Algorithim - 3rd Edition**
+Study notes and code written for each chapter while reading the book **Introduction To Algorithim - 3rd Edition**
 
 # Table of contents
 1. [Foundatios](#foundations)
@@ -13,7 +13,7 @@ Study notes and code written for each chapter while reading the book **Intruduct
 2. [Sorting and Order Statistics](#sorting)
     1. [Heapsort](#heapsort)
     2. [Quicksort](#quicksort)
-    3 .[Sorting in Linear Time](#linear-time-sort)
+    3. [Sorting in Linear Time](#linear-time-sort)
     4. [Medians and Order Statistics](#median-order-stat)
 3. [Data Structures](#data-structures)
     1. [Elementary Data Structures](#elementary-data-structures)
@@ -55,7 +55,7 @@ Study notes and code written for each chapter while reading the book **Intruduct
 # Foundation <a name="foundations"></a>
 
 ## Role of Algorithims in Computing <a name="role-algo"></a>
-TODO##
+Algorithms, an algorithm is any well-defined computational procedure that takes some value, or set of values, as input and produces some value, or set of values, as output. An algorithm is thus a sequence of computational steps that transform the input into the output.
 
 ## Getting Started <a name="getting-started"></a>
 TODO##
@@ -86,7 +86,14 @@ TODO##
 # Data Structures <a name="data-structures"></a>
 
 ## Elementary Data Structures <a name="elementary-data-structures"></a>
-TODO##
+
+### Stack
+
+### Queue
+
+### Linked List
+
+### Rooted Tree
 
 ## Hash Tables <a name="hashtable"></a>
 TODO##
