@@ -161,8 +161,17 @@ In computer science, a binary tree is a tree data structure in which each node h
             /                    \
     height('4') = 1     height('5') = 1
     ```
-    __Implementation__ 
-    Code to calculate height of binary tree can be found [C](./ch03/tree.c) [Java](./ch03/Tree.java)  [Go](./ch03/go/tree.go)
+    __Implementation__
+    Code to calculate height & maximum depth of a binary tree can be found [C](./ch03/tree.c)  [Java](./ch03/Tree.java)  [Go](./ch03/go/tree.go)
+    > Method : height() & depth()
+
+##### Subtree
+
+  A subtree(S) of a tree T is a tree consisting of a node in T and all of its descendants in T. The subtree corresponding to the root node is the entire tree
+
+  __Implementation__
+  Code to check if tree S is a subtree of T can be found [C](./ch03/tree.c) / [Java](./ch03/Tree.java) / [Go](./ch03/go/tree.go)
+  > Method : isSubtree()
 
 #### Complexity Analysis Cheatsheet
 
