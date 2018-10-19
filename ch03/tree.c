@@ -3,8 +3,8 @@
 
 struct node
 {
-    int data;
     struct node *left;
+    int data;
     struct node *right;
 };
 
@@ -55,37 +55,45 @@ void inorder(struct node *root)
 }
 
 /*
-Height of a binary tree.
+Maximum Depth of a binary tree.
 
 Time Complexity: O(n) where n is number of nodes in given binary tree.
 */
-int height(struct node* root)
+int maxDepth(struct node* root)
 {
     if (root == NULL)
     {
         return 0;
+    }
+    return 1 + max(maxDepth(root->left), maxDepth(root->right));
+}
+
+int height(struct node* root)
+{
+    if (root == NULL)
+    {
+        return -1;
     }
     return 1 + max(height(root->left), height(root->right));
 }
 
 int main()
 {
-    //Initialize root
+    //Level 0 - root
     struct node* root = newNode(1);
 
-    //Add 2 child to the root
+    //Level 1- Add 2 child to the root
     root->left = newNode(2);
     root->right = newNode(3);
 
-    //Get height of tree
-    printf("Current  height of tree is %d", height(root));
-
-    //Add one more to the left
+    //Level 2- Add left and right
     root->left->left = newNode(4);
-    //Get height of tree
-    printf("\nCurrent  height of tree is %d", height(root));
+    root->left->right = newNode(5);
+
+    //Get depth of tree
+    printf("***** Max depth: %d, height: %d", maxDepth(root),height(root));
 
     //inorder traversal
-    printf("\n***** Inorder traversal *****");
+    printf("\n***** Inorder traversal ***** ");
     inorder(root);
 }

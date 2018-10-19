@@ -119,7 +119,7 @@ In computer science, a binary tree is a tree data structure in which each node h
 
 1. The **depth** of a node is the number of edges from the node to the tree's root node. A root node will have a depth of 0.
 2. The **height** of a node is the number of edges on the longest path from the node to a leaf.A leaf node will have a height of 0.
-3. The **diameter (or width)** of a tree is the number of nodes on the longest path between any two leaf nodes. The tree below has a diameter of 6 nodes.
+3. The **diameter (or width)** of a tree is the number of nodes on the longest path between any two leaf nodes. The tree below has a diameter of 5 nodes.
 
     ![Height Depth and Diameter](./asset/trees/height_depth.png)
 
@@ -162,13 +162,15 @@ In computer science, a binary tree is a tree data structure in which each node h
     height('4') = 1     height('5') = 1
     ```
     __Implementation__ 
-    Code to calculate height of binary tree can be found [here](./ch03/trees.c)
+    Code to calculate height of binary tree can be found [C](./ch03/tree.c) [Java](./ch03/Tree.java)  [Go](./ch03/go/tree.go)
 
 #### Complexity Analysis Cheatsheet
 
 Operation      | Best case       | Worst Case     | Average case   | Space
 :------------: | :-------------: | :------------: | :------------: | :------:
 height()       | O(n)            | O(n)           | O(n)           | O(n)
+depth()        | O(n)            | O(n)           | O(n)           | O(n)
+
 
 
 
