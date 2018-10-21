@@ -194,9 +194,28 @@ TODO##
 
 # Advanced Design and Analysis Techniques <a name="adv-analysis-design"></a>
 
-## [Dynamic Programming <a name="dynamic-prog"></a>
-TODO##
+## Dynamic Programming <a name="dynamic-prog"></a>
 
+A dynamic-programming algorithm solves each subsubproblem just once and then saves its answer in a table, thereby avoiding the work of recomputing the answer every time it solves each subsubproblem. Wetypically apply dynamic programming to optimization problems. Such problems can have many possible solutions. Each solution has a value, and we wish to f ind a solution with the optimal (minimum or maximum) value. We call such a solution an optimal solution to the problem, as opposed to the optimal solution, since there may be several solutions that achieve the optimal value. When developing a dynamic-programming algorithm, we follow a sequence of four steps:
+
+1. Characterize the structure of an optimal solution.
+2. Recursively define the value of an optimal solution.
+3. Compute the value of an optimal solution, typically in a bottom-up fashion.
+4. Construct an optimal solution from computed information.
+
+
+Steps 1–3 form the basis of a dynamic-programming solution to a problem. If we need only the value of an optimal solution, and not the solution itself, then we can omit step 4. When we do perform step 4, we sometimes maintain additional information during step 3 so that we can easily construct an optimal solution.
+
+- **Rod cutting problem**
+
+    Given a rod of length n inches and a table of prices p<sub>i</sub> for i = 1,2,....,n. determine the maximum revenue r<sub>n</sub> obtainable by cutting up the rod and selling the pieces. Note that if the price p<sub>n</sub> for a rod of length n is large enough, an optimal solution may require no cutting at all.
+
+    length i     |1|2|3|4|5|6|7|8|9|10
+    ------------ |--|--|--|--|--|--|--|--|--|--|
+    price p<sub>i</sub>|1|5|8|9|10|17|17|20|24|30
+
+    A sample price table for rods. Each rod of length i inches earns the company pi dollars of revenue.
+  
 ## Greedy Algorithim <a name="greedy-algo"></a>
 TODO##
 
@@ -234,7 +253,7 @@ TODO##
 ## Maximum FLow <a name="max-flow"></a>
 TODO##
 
-#Selected Topics <a name="selected-topics"></a>
+# Selected Topics <a name="selected-topics"></a>
 
 ## Mutithreaded Algorithim <a name="muti-thread-algo"></a>
 TODO##
