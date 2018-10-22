@@ -162,7 +162,7 @@ In computer science, a binary tree is a tree data structure in which each node h
     height('4') = 1     height('5') = 1
     ```
     __Implementation__
-    Code to calculate height & maximum depth of a binary tree can be found [C](./ch03/tree.c)  [Java](./ch03/Tree.java)  [Go](./ch03/go/tree.go)
+    Code to calculate height & maximum depth of a binary tree can be found [C](./ch03/tree.c) / [Java](./ch03/Tree.java) / [Go](./ch03/go/tree.go)
     > Method : height() & depth()
 
 ##### Subtree
@@ -203,8 +203,19 @@ A dynamic-programming algorithm solves each subsubproblem just once and then sav
 3. Compute the value of an optimal solution, typically in a bottom-up fashion.
 4. Construct an optimal solution from computed information.
 
+Dynamic programming thus uses additional memory to save computation time; it serves an example of a **time-memory trade-off**.The savings may be dramatic: an exponential-time solution may be transformed into a polynomial-time solution. A dynamic-programming approach runs in polynomial time when the number of distinct subproblems involved is polynomial in the input size and we can solve each such subproblem in polynomial time.
 
 Steps 1–3 form the basis of a dynamic-programming solution to a problem. If we need only the value of an optimal solution, and not the solution itself, then we can omit step 4. When we do perform step 4, we sometimes maintain additional information during step 3 so that we can easily construct an optimal solution.
+
+There are usually two equivalent ways to implement a dynamic-programming approach.
+
+- **Top-down with memoization**
+    In this approach, we write the procedure recursively in a natural manner, but modified to save the result of each subproblem (usually in an array or hash table). The procedure now first checks to see whether it has previously solved this subproblem. If so, it returns the saved value, saving further computation at this level; if not, the procedure computes the value in the usual manner. We say that the recursive procedure has been memoized; it “remembers” what results it has computed previously.
+
+- **Bottom-up method**
+    This approach typically depends on some natural notion of the “size” of a subproblem, such that solving any particular subproblem depends only on solving “smaller” subproblems. We sort the subproblems by size and solve them in size order, smallest first. When solving a particular subproblem, we have already solved all of the smaller subproblems its solution depends upon, and we have saved their solutions. We solve each subproblem only once, and when we first see it, we have already solved all of its prerequisite subproblems.
+
+### Example Problems
 
 - **Rod cutting problem**
 
@@ -214,7 +225,20 @@ Steps 1–3 form the basis of a dynamic-programming solution to a problem. If we
     ------------ |--|--|--|--|--|--|--|--|--|--|
     price p<sub>i</sub>|1|5|8|9|10|17|17|20|24|30
 
-    A sample price table for rods. Each rod of length i inches earns the company pi dollars of revenue.
+    A sample price table for rods. Each rod of length i inches earns the company p<sub>i</sub> dollars of revenue.
+
+    __Subproblem Graph__
+    When we think about a dynamic-programming problem, we should understand the set of subproblems involved and how subproblems depend on one another. The subproblem graph for the problem embodies exactly this information. Below picture shows the subproblem graph for the rod-cutting problem with n = 4. It is a directed graph, containing one vertex for each distinct subproblem. 
+
+    ![Sub problem graph](./asset/dynamic_prog/rod_cutting_graph.JPG)
+
+    The bottom-up method for dynamic programming considers the vertices of the subproblem graph in such an order that we solve the subproblems y adjacent to a given subproblem x before we solve subproblem x. In a bottom-up dynamic-programming algorithm, we consider the vertices of the subproblem graph in an order that is a **reverse topological sort** or a **topological sort of the transpose** of the subproblem graph. In other words, no subproblem is considered until all of the subproblems it depends upon have been solved. Similarly, using notions from the same chapter, we can view the top-down method (with memoization)for dynamic programming as a “depth-first search” of the subproblem graph
+
+    The size of the subproblem graph G=(V,E) can help us determine the running time of the dynamic programming algorithm. Since we solve each subproblem just once, the running time is the sum of the times needed to solve each subproblem. Typically, the time to compute the solution to a subproblem is proportional to the degree (number of outgoing edges) of the corresponding vertex in the subproblem graph,and the number of subproblems is equal to the number of vertices in the subproblem graph. In this common case, the running time of dynamic programming is linear in the number of vertices and edges.
+
+    __Implementation__
+    [C](./ch04/dynamic_programming/cut_rod.c) / [Java](./ch04/dynamic_programming/CutRod.java) / [Go](./ch04/dynamic_programming/go/cut_rod.go)
+    > Methods: cut_rod() , cut_rod_memoized() , cut_rod_bottom_up()
   
 ## Greedy Algorithim <a name="greedy-algo"></a>
 TODO##
