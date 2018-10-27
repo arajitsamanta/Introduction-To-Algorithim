@@ -77,6 +77,7 @@ public class Tree {
 
         if (s == null)
             return true;
+            
         if (t == null)
             return false;
 
@@ -137,7 +138,7 @@ public class Tree {
 
         //Add one more node to make subtree to be false
         subtree.left.right=new Node(6);
-        assert true==isSubtree(root,subtree); 
+        assert false==isSubtree(root,subtree); 
     }
 
 }

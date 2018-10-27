@@ -132,7 +132,7 @@ int isSubtree(struct node *t, struct node *s)
 /*
 Complexity
 ==========
-Time : O(n) n is number of nodes.   
+Time : O(n) n is number of nodes.
 Space: O(h + 1) = O(h) 
 */
 int depth(struct node *root)
