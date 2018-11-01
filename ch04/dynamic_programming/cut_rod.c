@@ -135,7 +135,7 @@ int main()
 {
   //length 0,1,2....n, Prices are of p[i]. when length =0, price is 0, when lentgth is 1 price is 1, when lentgth is 2 price is 5 and so on.
   int prices[] = {0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30};
-  int cut_length=31;
+  int cut_length=32;
 
   clock_t begin = clock();
   printf("Max revenue %d ", cut_rod(prices, cut_length));
