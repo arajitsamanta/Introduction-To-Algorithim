@@ -265,7 +265,7 @@ TODO##
 ## Elemantary Graph Algorithim <a name="elem-graph-algo"></a>
 
 We can choose between two standard ways to represent a graph G = (V, E): as a collection of **adjacency lists** or as an **adjacency matrix**. Either way applies
-to both directed and undirected graphs. Because the adjacency-list representation provides a compact way to represent **sparse** graphs—those for which |E|is much less than |V|^2 — it is usually the method of choice.
+to both directed and undirected graphs. Because the adjacency-list representation provides a compact way to represent **sparse** graphs—those for which |E| is much less than |V|^2 — it is usually the method of choice.
 
 We may prefer an adjacency-matrix representation, however, when the graph is **dense** |E| is close to |V|^2 — or when we need to be able to tell quickly if there is an edge connecting two given vertices.
 
@@ -275,9 +275,17 @@ We may prefer an adjacency-matrix representation, however, when the graph is **d
 
     ![Undirected Graph](./asset/graph/undirected_graph.png)
 
+    __Implementation__
+    [C](./ch06/graph.c)
+    > Methods: add_edge_undirected()
+
 - **Directed Graph**
 
     ![Directed Graph](./asset/graph/directed_graph.png)
+
+    __Implementation__
+    [C](./ch06/graph.c)
+    > Methods: add_edge_directed()
 
 
 ## Minimum Spanning Trees <a name="min-spanning-trees"></a>
