@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <assert.h>
 
 #include "graph.h"
 
@@ -163,46 +162,48 @@ int edge_count(Graph g)
     return g->E;
 }
 
-int main(int argc, char const *argv[])
+/* Init a 2-D array to represent a graph */
+int **create_graph_adjacency_matrix(int v)
 {
 
-    // Create the graph
-    Graph g_undirected = create_graph(7);
-    assert(vertex_count(g_undirected) == 7);
-    assert(edge_count(g_undirected) == 0);
+    int **arr = (int **)malloc(v * sizeof(int *));
 
-    // Add some edges
-    add_edge_undirected(g_undirected, 0, 1);
-    add_edge_undirected(g_undirected, 0, 4);
-    add_edge_undirected(g_undirected, 1, 2);
-    add_edge_undirected(g_undirected, 1, 3);
-    add_edge_undirected(g_undirected, 1, 4);
-    add_edge_undirected(g_undirected, 2, 3);
-    add_edge_undirected(g_undirected, 3, 4);
+    for (int i = 0; i < v; i++)
+        arr[i] = (int *)malloc(v * sizeof(int));
 
-    // Total edge count should be 14 for 7 vertex
-    assert(edge_count(g_undirected) == 14);
-
-    // Print the adjacency list representation of the graph
-    print_graph(g_undirected);
-
-    // Destroy graph
-    destroy(g_undirected);
-
-    // Create the graph
-    Graph g_directed = create_graph(7);
-
-    // Add some edges
-    add_edge_directed(g_directed, 0, 1);
-    add_edge_directed(g_directed, 0, 4);
-    add_edge_directed(g_directed, 1, 2);
-    add_edge_directed(g_directed, 1, 3);
-    add_edge_directed(g_directed, 1, 4);
-    add_edge_directed(g_directed, 2, 3);
-    add_edge_directed(g_directed, 3, 4);
-
-    // Total edge count should be 7 for 7 vertex
-    assert(edge_count(g_directed) == 7);
-
-    return 0;
+    return arr;
 }
+
+void add_edge_adjacency(int **g, int v, int e)
+{
+    //Set (v,e) = 1 on the matrix
+    *(*(g + v) + e) = 1;
+}
+
+/* Print adjacency representation of the graph */
+void print_graph_adjacency(int **g, int v)
+{
+
+    printf("Adjacency representation of graph with total vertex %d \n", v);
+    for (int i = 0; i < v; i++)
+    {
+        for (int j = 0; j < v; j++)
+        {
+            printf("%d ", *(*(g + i) + j));
+        }
+        printf("\n");
+    }
+}
+
+
+// free 2D array
+void destroy_adjacency_matrix(int **g, int v)
+{
+    // first free each row
+    for (int row = 0; row < v; row++) {
+         free(g[row]);
+    }
+
+    // Eventually free the memory of the pointers to the rows
+    free(g);
+ }
