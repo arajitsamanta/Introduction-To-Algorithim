@@ -280,7 +280,7 @@ We may prefer an adjacency-matrix representation, however, when the graph is **d
         [C](./ch06/graph.c) / [Java](./ch06/todo.java)  / [Go](./ch06/todo.go)
         > Methods: create_graph(), add_edge_undirected()
     - Adjacency Matrix
-        [C](./ch06/graph.c)
+        [C](./ch06/graph.c) / [Java](./ch06/todo.java)  / [Go](./ch06/todo.go)
         > Methods: create_graph_adjacency_matrix(), add_edge_adjacency()
 
 - **Directed Graph**
@@ -288,7 +288,7 @@ We may prefer an adjacency-matrix representation, however, when the graph is **d
     ![Directed Graph](./asset/graph/directed_graph.png)
 
     __Implementation__
-    [C](./ch06/graph.c)
+    [C](./ch06/graph.c) / [Java](./ch06/todo.java)  / [Go](./ch06/todo.go)
     > Methods: add_edge_directed()
 
 
