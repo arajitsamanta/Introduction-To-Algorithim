@@ -239,7 +239,7 @@ There are usually two equivalent ways to implement a dynamic-programming approac
     __Implementation__
     [C](./ch04/dynamic_programming/cut_rod.c) / [Java](./ch04/dynamic_programming/CutRod.java) / [Go](./ch04/dynamic_programming/go/cut_rod.go)
     > Methods: cut_rod() , cut_rod_memoized() , cut_rod_bottom_up()
-  
+
 ## Greedy Algorithim <a name="greedy-algo"></a>
 TODO##
 
@@ -263,7 +263,34 @@ TODO##
 # Graph Algorithims <a name="graphs"></a>
 
 ## Elemantary Graph Algorithim <a name="elem-graph-algo"></a>
-TODO##
+
+We can choose between two standard ways to represent a graph G = (V, E): as a collection of **adjacency lists** or as an **adjacency matrix**. Either way applies
+to both directed and undirected graphs. Because the adjacency-list representation provides a compact way to represent **sparse** graphs—those for which |E| is much less than |V|^2 — it is usually the method of choice.
+
+We may prefer an adjacency-matrix representation, however, when the graph is **dense** |E| is close to |V|^2 — or when we need to be able to tell quickly if there is an edge connecting two given vertices.
+
+### Graph Representation
+
+- **Undirected Graph**
+
+    ![Undirected Graph](./asset/graph/undirected_graph.png)
+
+    __Implementation__
+    - Adjacency List
+        [C](./ch06/graph.c) / [Java](./ch06/todo.java)  / [Go](./ch06/todo.go)
+        > Methods: create_graph(), add_edge_undirected()
+    - Adjacency Matrix
+        [C](./ch06/graph.c) / [Java](./ch06/todo.java)  / [Go](./ch06/todo.go)
+        > Methods: create_graph_adjacency_matrix(), add_edge_adjacency()
+
+- **Directed Graph**
+
+    ![Directed Graph](./asset/graph/directed_graph.png)
+
+    __Implementation__
+    [C](./ch06/graph.c) / [Java](./ch06/todo.java)  / [Go](./ch06/todo.go)
+    > Methods: add_edge_directed()
+
 
 ## Minimum Spanning Trees <a name="min-spanning-trees"></a>
 TODO##
