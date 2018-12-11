@@ -1,26 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
 
 #include "graph.h"
-
-struct graph
-{
-    int V; // number of vertices
-    int E; // number of edges
-
-    struct adjList
-    {
-        struct node
-        {
-            int data;
-            struct node *next;
-        } Node;
-        // graph node
-        struct node *head; //Pointer to the head of the adjacency list
-    } AdjList;
-
-    struct adjList *adjListArray;
-};
 
 // An utility function to create a new adjacency list node
 struct node *newNode(int dest)
@@ -207,3 +188,5 @@ void destroy_adjacency_matrix(int **g, int v)
     // Eventually free the memory of the pointers to the rows
     free(g);
  }
+
+ 
