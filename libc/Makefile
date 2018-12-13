@@ -1,11 +1,12 @@
 SHELL := /bin/sh
 CC = gcc # C compiler
-FLAGS =-std=gnu99 -Iinclude
-CFLAGS = -fPIC -g# C flags
+FLAGS =-Iinclude
+CFLAGS = -g3 -Wall -Wextra -fPIC
 LDFLAGS = -shared  # linking flags
 RM = rm -f  # rm command
 
-TARGET = libcollection.so # target lib
+TARGET = cyglibcollection.dll # target lib
+TARGET_STATIC = libcollection.a # target lib
 SOURCES = $(wildcard src/*.c)
 HEADERS = $(wildcard include/*.h)
 OBJECTS = $(SOURCES:.c=.o)
@@ -19,8 +20,11 @@ $(TARGET): $(HEADERS)
 
 # the $< is the first item in the dependencies list, and the CFLAGS macro is defined as above
 $(SOURCES:.c=.d):%.d:%.c
-	$(CC) ${FLAGS} $(CFLAGS) -MM $< >$@
+	$(CC) $(FLAGS) $(CFLAGS) -MM $< >$@
 include $(SOURCES:.c=.d)
+
+#$(TARGET):$(OBJECTS)
+#	$(CC) $(FLAGS) $(CFLAGS) ${LDFLAGS} $(DEBUGFLAGS) -o $(TARGET) $(OBJECTS)
 
 .PHONY: clean
 clean:
