@@ -1,3 +1,4 @@
+
 #ifndef _GRAPH_H_
 #define _GRAPH_H_
 
@@ -24,41 +25,49 @@ struct graph
 // basic directed graph type
 typedef struct graph *Graph;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 // create a new graph with v vertices labeled 0..v-1 and no edges
-extern Graph create_graph(int v);
+Graph create_graph(int v);
 
 // free all space used by graph
-extern void destroy(Graph);
+void destroy(Graph);
 
 // add an edge to an existing graph(undirected)
-extern void add_edge_undirected(Graph, int source, int dest);
+void add_edge_undirected(Graph, int source, int dest);
 
 // add an edge to an existing graph(directed)
-extern void add_edge_directed(Graph, int source, int dest);
+void add_edge_directed(Graph, int source, int dest);
 
 // return the number of vertices/edges in the graph
-extern int vertex_count(Graph);
-extern int edge_count(Graph);
+int vertex_count(Graph);
+int edge_count(Graph);
 
 // return the out-degree of a vertex
-extern int graph_out_degree(Graph, int source);
+int graph_out_degree(Graph, int source);
 
 // return 1 if edge (source, sink) exists), 0 otherwise
-extern int graph_has_edge(Graph, int source, int sink);
+int graph_has_edge(Graph, int source, int sink);
 
 // Print a graph
-extern void print_graph(Graph);
+void print_graph(Graph);
 
 // Init a 2-D array to represent a graph
-extern int **create_graph_adjacency_matrix(int);
+int **create_graph_adjacency_matrix(int);
 
 // add an edge betwen two vertex (v1,v2)
-extern void add_edge_adjacency(int **, int, int);
+void add_edge_adjacency(int **, int, int);
 
 // Print adjacency representation of the graph
-extern void print_graph_adjacency(int **, int);
+void print_graph_adjacency(int **, int);
 
 // Free memory occupied by matrix
-extern void destroy_adjacency_matrix(int **, int);
+void destroy_adjacency_matrix(int **, int);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
