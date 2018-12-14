@@ -1,11 +1,11 @@
 SHELL := /bin/sh
-CC = gcc # C compiler
+CC = /bin/gcc # C compiler
 FLAGS =-Iinclude
 CFLAGS = -g3 -Wall -Wextra -fPIC
 LDFLAGS = -shared  # linking flags
 RM = rm -f  # rm command
 
-TARGET = cyglibcollection.dll # target lib
+TARGET = libcollection.dll # target lib
 TARGET_STATIC = libcollection.a # target lib
 SOURCES = $(wildcard src/*.c)
 HEADERS = $(wildcard include/*.h)

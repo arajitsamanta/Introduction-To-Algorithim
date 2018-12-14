@@ -21,6 +21,9 @@ Graph create_graph(int v)
     //set vertext count
     g->V = v;
 
+    //Set ede count to zero during initialization.
+    g->E = 0;
+
     // Create an array of adjacency lists.  Size of
     // array will be V
     g->adjListArray = (struct adjList *)malloc(v * sizeof(struct adjList));
