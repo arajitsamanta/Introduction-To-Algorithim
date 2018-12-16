@@ -1,31 +1,31 @@
-SHELL := /bin/sh
 CC = gcc # C compiler
-FLAGS =-Iinclude
-CFLAGS = -g3 -Wall -Wextra -fPIC
-LDFLAGS = -shared  # linking flags
-RM = rm -f  # rm command
-
-TARGET = cyglibcollection.dll # target lib
-TARGET_STATIC = libcollection.a # target lib
-SOURCES = $(wildcard src/*.c)
+SOURCE = $(wildcard src/*.c)
 HEADERS = $(wildcard include/*.h)
-OBJECTS = $(SOURCES:.c=.o)
+OBJECTS = $(SOURCE:.c=.o)
+DEPS = $(OBJECTS:.o=.d)  # one dependency file for each source
+
+LDFLAGS = -shared
+CFLAGS = -fPIC -Wall -Wextra -Iinclude
+
+# GEnerate so foe linux and dll for windows. Not support MacOS for now.
+ifeq ($(shell uname -s), Linux)
+  TARGET = libcollection.so
+else
+  TARGET = libcollection.dll
+endif
 
 .PHONY: all
-all: ${TARGET}
+	all: ${TARGET}
 
-# -o $@ says, put the output of the compilation in the file named on the left side of the :
-$(TARGET): $(HEADERS)
-	$(CC) ${LDFLAGS} -o $@ $^
+${TARGET}: $(OBJECTS)
+	$(CC) $(LDFLAGS) -o $@ $^
 
-# the $< is the first item in the dependencies list, and the CFLAGS macro is defined as above
-$(SOURCES:.c=.d):%.d:%.c
-	$(CC) $(FLAGS) $(CFLAGS) -MM $< >$@
-include $(SOURCES:.c=.d)
+include $(DEPS)   # include all dependencies files in the makefile
 
-#$(TARGET):$(OBJECTS)
-#	$(CC) $(FLAGS) $(CFLAGS) ${LDFLAGS} $(DEBUGFLAGS) -o $(TARGET) $(OBJECTS)
+# rule to generate a dep file by using the C preprocessor
+%.d: %.c
+	$(CC) $(CFLAGS) $< -MM -MT $(@:.d=.o) >$@
 
 .PHONY: clean
 clean:
-	-${RM} ${TARGET} ${OBJECTS} $(SOURCES:.c=.d)
+	rm -f $(OBJECTS) ${TARGET} $(DEPS)
