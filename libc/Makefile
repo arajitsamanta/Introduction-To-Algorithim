@@ -1,13 +1,11 @@
 CC = gcc # C compiler
 SOURCE = $(wildcard src/*.c)
-HEADERS = $(wildcard include/*.h)
 OBJECTS = $(SOURCE:.c=.o)
 DEPS = $(OBJECTS:.o=.d)  # one dependency file for each source
-
 LDFLAGS = -shared
 CFLAGS = -fPIC -Wall -Wextra -Iinclude
 
-# GEnerate so foe linux and dll for windows. Not support MacOS for now.
+# Generate .so for linux and .dll for windows. Not support MacOS for now.
 ifeq ($(shell uname -s), Linux)
   TARGET = libcollection.so
 else
@@ -22,7 +20,7 @@ ${TARGET}: $(OBJECTS)
 
 include $(DEPS)   # include all dependencies files in the makefile
 
-# rule to generate a dep file by using the C preprocessor
+# Rule to generate a dep file by using the C preprocessor
 %.d: %.c
 	$(CC) $(CFLAGS) $< -MM -MT $(@:.d=.o) >$@
 

@@ -1,17 +1,58 @@
-# build object file
-$ gcc -o graph.o -c graph.c
 
-# Create .a file using for static linking
-$ ar rc libds.a graph.o
+# Collection Framework Shared Library
 
-## Optional - Rebuild index of archieve file.
-$ ranlib libds.a
+This is an effor to create a libary which will provide basic functionallty to follwing types of collections.
 
-# Create a shared library(so in unix)
-$ gcc -shared -o libds.so graph.o
+- Vector
+- List
+- Set
+- Stack
+- Queue
+- Tree
+- Graph
+- Hashtable/Map
 
-# Create a shared library(dll in windows)
-$ gcc -shared -o libds.dll graph.o
+**Note** This is an effort to write my own implementation and create a library around basic data structures instead of using third party library. This is still **work in progress**
 
-# Run code using generated shared library
-$ gcc prog.c -L{path to file containing library} -l${library-name} -I "path to header files"
+## Build
+
+To generate share library run below commands from libc directory
+
+```shell
+  $ make clean
+  $ make
+```
+
+This will generate libcollection.so(or .dll) on libc directory.
+
+## Install
+
+### Linux
+
+#### Headers
+
+Copy header files(include/*.h) to GCC default include path. This can be found by running following command. Typically can be /usr/lib or /usr/local/lib.
+
+```shell
+  $ echo | gcc -E -Wp,-v -
+```
+
+#### Library
+
+To install the shared library copy it to your library path. This can be found by running following command. Typically this path can be /usr/lib or /usr/local/lib.
+
+```shell
+  $ ldconfig -v 2>/dev/null | grep -v ^$'\t'
+```
+
+### Windows
+
+TODO##
+
+# Run
+
+Run following command.
+
+```shell
+  $ gcc source_file.c -lcollection
+```
