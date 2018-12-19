@@ -10,7 +10,7 @@ int cut_rod_memoized(int p[], int n);
 int cut_rod_bottom_up(int p[], int n);
 
 /* Macro definition */
-#define MIN_INT (-1 << sizeof(int)) - 1;
+#define MIN_INT (-1 << (8*sizeof(int)) - 1);
 
 /* Max of two numbers */
 int max(int a, int b)
