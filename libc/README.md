@@ -31,7 +31,7 @@ This will generate libcollection.so(or .dll) on libc directory.
 
 #### Headers
 
-Copy header files(include/*.h) to GCC default include path. This can be found by running following command. Typically can be /usr/lib or /usr/local/lib.
+Copy header files(include/*.h) to GCC default include path. This can be found by running following command. Typically this path can be /usr/lib or /usr/local/lib.
 
 ```shell
   $ echo | gcc -E -Wp,-v -
@@ -47,7 +47,18 @@ To install the shared library copy it to your library path. This can be found by
 
 ### Windows
 
-TODO##
+#### Headers
+
+Same as Linux setup.
+
+#### Library
+
+- Copy libcollection.dll to any folder. Say c:\temp\lib
+- set LIBARY_PATH environment varible to the above directory.
+
+```bat
+c:\> set LIBRARY_PATH=c:\temp\lib:%LIBRARY_PATH%
+```
 
 # Run
 
