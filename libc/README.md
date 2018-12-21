@@ -1,7 +1,7 @@
 
 # Collection Framework Shared Library
 
-This is an effor to create a libary which will provide basic functionallty to follwing types of collections.
+This is an effor to create a libary which will provide basic functionallty for follwing types of collections.
 
 - Vector
 - List
