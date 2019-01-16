@@ -108,7 +108,7 @@ In computer science, a binary tree is a tree data structure in which each node h
 
 - In a **complete** binary tree every level, except possibly the last, is completely filled, and all nodes in the last level are as far left as possible. It can have between 1 and 2h nodes at the last level h. An alternative definition is a perfect tree whose rightmost leaves (perhaps all) have been removed.
 
-    ![Complete Binary Tree](./asset/trees/full_binary_tree.png)
+    ![Complete Binary Tree](./asset/trees/complete_binary_tree.png)
 
 - A **perfect** binary tree is a binary tree in which all interior nodes have two children and all leaves have the same depth or same level.
 - A **balanced** binary tree is a binary tree structure in which the left and right subtrees of every node differ in height by no more than 1.One may also consider binary trees where no leaf is much farther away from the root than any other leaf.
